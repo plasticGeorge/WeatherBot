@@ -33,7 +33,7 @@ namespace MttfBot.Controllers
                 case "confirmation":
                     return Ok(_configuration["Confirmation:202559462"]);
                 case "message_new":
-                    var mes = Message.FromJson(new VkResponse(callback.Object));
+                    var mes = Message.FromJson(new VkResponse(callback.Object.SelectToken("message")));
                     _api.Messages.Send(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
