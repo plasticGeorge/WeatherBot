@@ -31,7 +31,7 @@ namespace MttfBot.Controllers
             switch(callback.Type)
             {
                 case "confirmation":
-                    return Ok(_configuration["Confirmation:" + callback.GroupId.ToString()]);
+                    return Ok(_configuration["Confirmation:202559462"]);
                 case "new_message":
                     var mes = Message.FromJson(new VkResponse(callback.Object));
                     _api.Messages.Send(new MessagesSendParams
