@@ -12,7 +12,7 @@ namespace MttfBot.Models
     public class Message
     {
         [JsonProperty("date")]
-        public DateTime Date { get; set; }
+        public long Date { get; set; }
 
         [JsonProperty("from_id")]
         public long FromId { get; set; }
