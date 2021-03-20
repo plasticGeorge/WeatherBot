@@ -10,16 +10,29 @@ namespace MttfBot.Models
     [Serializable]
     public class Callback
     {
-        [JsonProperty("type")]
-        public string Type { get; set; }
+		/// <summary>
+		/// Тип события
+		/// </summary>
+		[JsonProperty("type")]
+		public string Type { get; set; }
 
-        [JsonProperty("object")]
-        public JObject Object { get; set; }
+		/// <summary>
+		/// Объект, инициировавший событие
+		/// Структура объекта зависит от типа уведомления
+		/// </summary>
+		[JsonProperty("object")]
+		public JObject Object { get; set; }
 
-        [JsonProperty("group_id")]
-        public long GroupId { get; set; }
+		/// <summary>
+		/// ID сообщества, в котором произошло событие
+		/// </summary>
+		[JsonProperty("group_id")]
+		public long GroupId { get; set; }
 
-        [JsonProperty("event_id")]
-        public string EventId { get; set; }
-    }
+		/// <summary>
+		/// Секретный ключ. Передается с каждым уведомлением от сервера
+		/// </summary>
+		[JsonProperty("secret")]
+		public string Secret { get; set; }
+	}
 }

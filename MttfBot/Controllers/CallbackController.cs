@@ -38,6 +38,7 @@ namespace MttfBot.Controllers
             {
                 case "confirmation":
                     return Ok(_configuration["Confirmation:202559462"]);
+
                 case "message_new":
                     var mes = Message.FromJson(new VkResponse(callback.Object.SelectToken("message")));
                     _api.Messages.Send(new MessagesSendParams
@@ -46,10 +47,10 @@ namespace MttfBot.Controllers
                         PeerId = mes.PeerId,
                         Message = mes.Text
                     });
-                    return Ok("ok");
-                default:
-                    return Ok("ok");
+                    break;
             };
+
+            return Ok("ok");
         }
         [HttpGet]
         public IActionResult Get()
