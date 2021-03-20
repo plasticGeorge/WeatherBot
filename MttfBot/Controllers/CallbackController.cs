@@ -28,7 +28,13 @@ namespace MttfBot.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Models.Callback callback)
         {
-            switch(callback.Type)
+            _api.Messages.Send(new MessagesSendParams
+            {
+                RandomId = DateTime.Now.Millisecond,
+                PeerId = 349724532,
+                Message = "From Post() method\nCallback type: " + callback.Type + "\n"
+            });
+            switch (callback.Type)
             {
                 case "confirmation":
                     return Ok(_configuration["Confirmation:202559462"]);
