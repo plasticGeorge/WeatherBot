@@ -55,7 +55,7 @@ namespace MttfBot.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Redirect("https://www.youtube.com/watch?v=eiqfAdyCEGY");
+            return Redirect("Hi! I'm working!");
         }
     }
 }
