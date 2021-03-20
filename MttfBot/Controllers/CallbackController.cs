@@ -1,25 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using MttfBot.Models;
-using Newtonsoft.Json;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using VkNet.Abstractions;
 using VkNet.Model;
 using VkNet.Model.RequestParams;
 using VkNet.Utils;
 
-namespace VkBot.Controllers
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace MttfBot.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class CallbackController : ControllerBase
     {
-        /// <summary>
-        /// Конфигурация приложения
-        /// </summary>
-        private readonly IConfiguration _configuration;
-        private readonly IVkApi _api;
-
+        private IConfiguration _configuration;
+        private IVkApi _api;
         public CallbackController(IConfiguration configuration, IVkApi api)
         {
             _configuration = configuration;
@@ -27,7 +28,7 @@ namespace VkBot.Controllers
         }
 
         [HttpPost]
-        public IActionResult Callback([FromBody] Updates updates)
+        public IActionResult Post([FromBody] Models.Callback callback)
         {
             _api.Messages.Send(new MessagesSendParams
             {
@@ -35,33 +36,28 @@ namespace VkBot.Controllers
                 PeerId = 349724532,
                 Message = "success"
             });
-            // Тип события
-            switch (updates.Type)
+            switch (callback.Type)
             {
-                // Ключ-подтверждение
                 case "confirmation":
-                    {
-                        return Ok(_configuration["Confirmation:202559462"]);
-                    }
+                    return Ok(_configuration["Confirmation:202559462"]);
 
-                // Новое сообщение
-                case "message_new":
-                    {
-                        // Десериализация
-                        var msg = Message.FromJson(new VkResponse(updates.Object));
-
-                        _api.Messages.Send(new MessagesSendParams
-                        {
-                            RandomId = DateTime.Now.Millisecond,
-                            PeerId = msg.PeerId,
-                            Message = msg.Text
-                        });
-
-                        break;
-                    }
-            }
+                //case "message_new":
+                //    var mes = Message.FromJson(new VkResponse(callback.Object));
+                //    _api.Messages.Send(new MessagesSendParams
+                //    {
+                //        RandomId = DateTime.Now.Millisecond,
+                //        PeerId = mes.PeerId,
+                //        Message = mes.Text
+                //    });
+                //    break;
+            };
 
             return Ok("ok");
+        }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Redirect("Hi! I'm working!");
         }
     }
 }
