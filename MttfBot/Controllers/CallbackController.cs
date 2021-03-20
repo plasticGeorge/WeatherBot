@@ -42,12 +42,11 @@ namespace MttfBot.Controllers
                     return Ok(_configuration["Confirmation:202559462"]);
 
                 case "message_new":
-                    var mes = message.fromjson(new vkresponse(callback.object));
-                    _api.messages.send(new messagessendparams
+                    _api.Messages.Send(new MessagesSendParams
                     {
-                        randomid = datetime.now.millisecond,
-                        peerid = mes.peerid,
-                        message = mes.text
+                        RandomId = DateTime.Now.Millisecond,
+                        PeerId = callback.Object.Message.PeerId,
+                        Message = callback.Object.Message.Text
                     });
                     break;
             };
