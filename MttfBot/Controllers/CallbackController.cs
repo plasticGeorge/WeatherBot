@@ -41,7 +41,7 @@ namespace VkBot.Controllers
                 // Ключ-подтверждение
                 case "confirmation":
                     {
-                        return Ok(_configuration["Config:Confirmation"]);
+                        return Ok(_configuration["Confirmation:202559462"]);
                     }
 
                 // Новое сообщение
