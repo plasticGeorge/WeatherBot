@@ -39,14 +39,8 @@ namespace MttfBot.Controllers
                     _api.Messages.Send(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
-                        PeerId = 349724532,
-                        Message = "success"
-                    });
-                    _api.Messages.Send(new MessagesSendParams
-                    {
-                        RandomId = DateTime.Now.Millisecond,
-                        PeerId = callback.Object.Message.FromId,
-                        Message = callback.Object.Message.Text
+                        PeerId = callback.Object.Message.PeerId,
+                        Message = "dsdsds"
                     });
                     break;
             };
