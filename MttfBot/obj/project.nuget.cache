@@ -1,14 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "8aY3d01rpcK3kdaCMLiMdDtey7bxhvwX1oNiVgBE7PqZo36ASqGX/zXstyQtjmYS4bmIQgZQLC/oH3yLj370KA==",
+  "dgSpecHash": "l2Fmizu6c0ngwcNTfs9kQq9ju3hmdKBht4PeL2KwcrzW8eU3yoVeworu/5SpbulL3AHMx6klZN8U/I5UKFV0Gg==",
   "success": true,
   "projectFilePath": "C:\\Users\\floppy\\source\\repos\\MttfBot\\MttfBot\\MttfBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\floppy\\.nuget\\packages\\htmlagilitypack\\1.11.31\\htmlagilitypack.1.11.31.nupkg.sha512",
-    "C:\\Users\\floppy\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\2.1.0\\microsoft.extensions.dependencyinjection.2.1.0.nupkg.sha512",
-    "C:\\Users\\floppy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
-    "C:\\Users\\floppy\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.1.0\\microsoft.extensions.logging.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\floppy\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.4\\microsoft.aspnetcore.jsonpatch.5.0.4.nupkg.sha512",
+    "C:\\Users\\floppy\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.4\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.4.nupkg.sha512",
+    "C:\\Users\\floppy\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\floppy\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.1\\microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",
+    "C:\\Users\\floppy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\floppy\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\floppy\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\floppy\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\floppy\\.nuget\\packages\\vknet\\1.61.0\\vknet.1.61.0.nupkg.sha512"
   ],
   "logs": []
