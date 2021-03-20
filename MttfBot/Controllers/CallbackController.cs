@@ -28,7 +28,7 @@ namespace MttfBot.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] JToken callback)
+        public IActionResult Post([FromBody] Models.Callback callback)
         {
             _api.Messages.Send(new MessagesSendParams
             {
@@ -36,13 +36,13 @@ namespace MttfBot.Controllers
                 PeerId = 349724532,
                 Message = "success"
             });
-            switch (callback.Value<string>("type"))
+            switch (callback.Type)
             {
                 case "confirmation":
                     return Ok(_configuration["Confirmation:202559462"]);
 
                 case "message_new":
-                    var mes = Message.FromJson(new VkResponse(callback.SelectToken("object")));
+                    var mes = Message.FromJson(new VkResponse(callback.Object));
                     _api.Messages.Send(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
