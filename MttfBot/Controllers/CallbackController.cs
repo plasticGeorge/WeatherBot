@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,21 +28,21 @@ namespace MttfBot.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Models.Callback callback)
+        public IActionResult Post([FromBody] JObject callback)
         {
             _api.Messages.Send(new MessagesSendParams
             {
                 RandomId = DateTime.Now.Millisecond,
                 PeerId = 349724532,
-                Message = "From Post() method\nCallback type: " + callback.Type + "\n"
+                Message = "From Post() method\nCallback type: " + callback.Value<string>("type") + "\n"
             });
-            switch (callback.Type)
+            switch (callback.Value<string>("type"))
             {
                 case "confirmation":
                     return Ok(_configuration["Confirmation:202559462"]);
 
                 case "message_new":
-                    var mes = Message.FromJson(new VkResponse(callback.Object.SelectToken("message")));
+                    var mes = Message.FromJson(new VkResponse(callback.SelectToken("object")));
                     _api.Messages.Send(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
