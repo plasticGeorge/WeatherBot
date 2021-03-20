@@ -29,38 +29,38 @@ namespace MttfBot.Models
         public override string ToString()
         {
 			return
-			$"type: {Type}\n" +
+			$"type: {this.Type}\n" +
 			$"object:\n" +
 			$"\tmessage:\n" +
-			$"\t\tdate: {Object.Message.Date}" +
-			$"\t\tfrom_id: {Object.Message.FromId}" +
-			$"\t\tid: {Object.Message.Id}" +
-			$"\t\tout: {Object.Message.Out}" +
-			$"\t\tpeer_id: {Object.Message.PeerId}" +
-			$"\t\ttext: {Object.Message.Text}" +
-			$"\t\tconversation_message_id: {Object.Message.ConversationMessageId}" +
+			$"\t\tdate: {this.Object.Message.Date}" +
+			$"\t\tfrom_id: {this.Object.Message.FromId}" +
+			$"\t\tid: {this.Object.Message.Id}" +
+			$"\t\tout: {this.Object.Message.Out}" +
+			$"\t\tpeer_id: {this.Object.Message.PeerId}" +
+			$"\t\ttext: {this.Object.Message.Text}" +
+			$"\t\tconversation_message_id: {this.Object.Message.ConversationMessageId}" +
 			$"\t\tfwd_messages: -" +
-			$"\t\timportant: {Object.Message.Important}" +
-			$"\t\trandom_id: {Object.Message.RandomId}" +
+			$"\t\timportant: {this.Object.Message.Important}" +
+			$"\t\trandom_id: {this.Object.Message.RandomId}" +
 			$"\t\tattachments: -" +
-			$"\t\tis_hidden: {Object.Message.IsHidden}" +
+			$"\t\tis_hidden: {this.Object.Message.IsHidden}" +
 			$"\tclient_info:" +
 			$"\t\tbutton_actions: [" +
-			$"\t\t\t{Object.ClientInfo.ButtonActions[0]}" +
-			$"\t\t\t{Object.ClientInfo.ButtonActions[1]}" +
-			$"\t\t\t{Object.ClientInfo.ButtonActions[2]}" +
-			$"\t\t\t{Object.ClientInfo.ButtonActions[3]}" +
-			$"\t\t\t{Object.ClientInfo.ButtonActions[4]}" +
-			$"\t\t\t{Object.ClientInfo.ButtonActions[5]}" +
-			$"\t\t\t{Object.ClientInfo.ButtonActions[6]}" +
-			$"\t\t\t{Object.ClientInfo.ButtonActions[7]}" +
+			$"\t\t\t{this.Object.ClientInfo.ButtonActions[0]}" +
+			$"\t\t\t{this.Object.ClientInfo.ButtonActions[1]}" +
+			$"\t\t\t{this.Object.ClientInfo.ButtonActions[2]}" +
+			$"\t\t\t{this.Object.ClientInfo.ButtonActions[3]}" +
+			$"\t\t\t{this.Object.ClientInfo.ButtonActions[4]}" +
+			$"\t\t\t{this.Object.ClientInfo.ButtonActions[5]}" +
+			$"\t\t\t{this.Object.ClientInfo.ButtonActions[6]}" +
+			$"\t\t\t{this.Object.ClientInfo.ButtonActions[7]}" +
 			$"\t\t\t]" +
-			$"\t\tkeyboard: {Object.ClientInfo.Keyboard}" +
-			$"\t\tinline_keyboard: {Object.ClientInfo.InlineKeyboard}" +
-			$"\t\tcarousel: {Object.ClientInfo.Carousel}" +
-			$"\t\tlang_id: {Object.ClientInfo.LangId}" +
-			$"group_id: {GroupId}" +
-			$"group_id: {EventID}";
+			$"\t\tkeyboard: {this.Object.ClientInfo.Keyboard}" +
+			$"\t\tinline_keyboard: {this.Object.ClientInfo.InlineKeyboard}" +
+			$"\t\tcarousel: {this.Object.ClientInfo.Carousel}" +
+			$"\t\tlang_id: {this.Object.ClientInfo.LangId}" +
+			$"group_id: {this.GroupId}" +
+			$"group_id: {this.EventID}";
         }
     }
 }
