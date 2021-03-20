@@ -15,7 +15,7 @@ namespace MttfBot.Models
 		public string Type { get; set; }
 
 		[JsonProperty("object")]
-		public JArray Object { get; set; }
+		public VkObject Object { get; set; }
 
 		[JsonProperty("group_id")]
 		public long GroupId { get; set; }
