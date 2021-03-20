@@ -12,25 +12,25 @@ namespace MttfBot.Models
     public class Message
     {
         [JsonProperty("date")]
-        public long Date { get; set; }
+        public int Date { get; set; }
 
         [JsonProperty("from_id")]
-        public long FromId { get; set; }
+        public int FromId { get; set; }
 
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("out")]
         public long Out { get; set; }
 
         [JsonProperty("peer_id")]
-        public long PeerId { get; set; }
+        public int PeerId { get; set; }
 
         [JsonProperty("text")]
         public string Text { get; set; }
 
         [JsonProperty("conversation_message_id")]
-        public long ConversationMessageId { get; set; }
+        public int ConversationMessageId { get; set; }
 
         //[JsonProperty("fwd_messages")]
         //
@@ -39,7 +39,7 @@ namespace MttfBot.Models
         public bool Important { get; set; }
 
         [JsonProperty("random_id")]
-        public long RandomId { get; set; }
+        public int RandomId { get; set; }
 
         //[JsonProperty("attachments")]
         //public JObject[] Attachments { get; set; }

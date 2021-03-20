@@ -23,6 +23,6 @@ namespace MttfBot.Models
         public bool Carousel { get; set; }
 
         [JsonProperty("lang_id")]
-        public long LangId { get; set; }
+        public int LangId { get; set; }
     }
 }

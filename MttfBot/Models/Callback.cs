@@ -18,7 +18,7 @@ namespace MttfBot.Models
 		public VkObject Object { get; set; }
 
 		[JsonProperty("group_id")]
-		public long GroupId { get; set; }
+		public int GroupId { get; set; }
 
 		[JsonProperty("event_id")]
 		public string EventID { get; set; }
