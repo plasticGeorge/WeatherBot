@@ -11,18 +11,18 @@ namespace MttfBot.Models
 	public class Callback
 	{
 		[JsonProperty("type")]
-		public JValue Type { get; set; }
+		public string Type { get; set; }
 
 		[JsonProperty("object")]
 		public JObject Object { get; set; }
 
 		[JsonProperty("group_id")]
-		public JValue GroupId { get; set; }
+		public long GroupId { get; set; }
 
 		[JsonProperty("event_id")]
-		public JValue EventID { get; set; }
+		public string EventID { get; set; }
 
 		[JsonProperty("secret")]
-		public JValue Secret { get; set; }
+		public string Secret { get; set; }
 	}
 }
