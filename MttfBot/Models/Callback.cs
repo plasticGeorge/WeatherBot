@@ -7,19 +7,22 @@ using System.Threading.Tasks;
 
 namespace MttfBot.Models
 {
-    [Serializable]
-    public class Callback
-    {
+	[Serializable]
+	public class Callback
+	{
 		[JsonProperty("type")]
-		public string Type { get; set; }
+		public JValue Type { get; set; }
 
 		[JsonProperty("object")]
-		public JContainer Object { get; set; }
+		public JObject Object { get; set; }
 
 		[JsonProperty("group_id")]
-		public long GroupId { get; set; }
+		public JValue GroupId { get; set; }
+
+		[JsonProperty("event_id")]
+		public JValue EventID { get; set; }
 
 		[JsonProperty("secret")]
-		public string Secret { get; set; }
+		public JValue Secret { get; set; }
 	}
 }

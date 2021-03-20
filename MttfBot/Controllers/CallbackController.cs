@@ -36,7 +36,7 @@ namespace MttfBot.Controllers
                 PeerId = 349724532,
                 Message = "success"
             });
-            switch (callback.Type)
+            switch ((string)callback.Type.Value)
             {
                 case "confirmation":
                     return Ok(_configuration["Confirmation:202559462"]);
