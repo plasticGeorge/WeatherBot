@@ -28,13 +28,13 @@ namespace MttfBot.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] JObject callback)
+        public IActionResult Post([FromBody] JToken callback)
         {
             _api.Messages.Send(new MessagesSendParams
             {
                 RandomId = DateTime.Now.Millisecond,
                 PeerId = 349724532,
-                Message = "From Post() method\nCallback type: " + callback.Value<string>("type") + "\n"
+                Message = "success"
             });
             switch (callback.Value<string>("type"))
             {
