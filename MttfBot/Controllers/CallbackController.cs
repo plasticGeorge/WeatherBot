@@ -51,7 +51,7 @@ namespace MttfBot.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Redirect("Hi! I'm working!");
+            return Ok("Hi! I'm working!");
         }
     }
 }
