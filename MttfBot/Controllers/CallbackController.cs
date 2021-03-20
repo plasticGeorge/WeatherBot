@@ -30,12 +30,6 @@ namespace MttfBot.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Models.Callback callback)
         {
-            _api.Messages.Send(new MessagesSendParams
-            {
-                RandomId = DateTime.Now.Millisecond,
-                PeerId = 349724532,
-                Message = "success"
-            });
             switch (callback.Type)
             {
                 case "confirmation":
@@ -45,7 +39,13 @@ namespace MttfBot.Controllers
                     _api.Messages.Send(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
-                        PeerId = callback.Object.Message.PeerId,
+                        PeerId = 349724532,
+                        Message = "success"
+                    });
+                    _api.Messages.Send(new MessagesSendParams
+                    {
+                        RandomId = DateTime.Now.Millisecond,
+                        PeerId = callback.Object.Message.FromId,
                         Message = callback.Object.Message.Text
                     });
                     break;
