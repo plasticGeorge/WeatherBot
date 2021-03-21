@@ -32,7 +32,7 @@ namespace MttfBot.Bots
                         "что более дальние прогнозы менее точны"
                     });
                     break;
-                case "1":
+                case "&#128205;":
                     await VkApi.Messages.SendAsync(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
@@ -40,15 +40,15 @@ namespace MttfBot.Bots
                         Message = "Из какого вы города?"
                     });
                     break;
-                case "2":
+                case "1 &#128197; 1":
                     await VkApi.Messages.SendAsync(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
                         UserId = message.FromId,
-                        Message = "Установка диапазона"
+                        Message = message.Text
                     });
                     break;
-                case "3":
+                case "&#128293;":
                     await VkApi.Messages.SendAsync(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
@@ -56,7 +56,7 @@ namespace MttfBot.Bots
                         Message = "Вот ваш прогноз: "
                     });
                     break;
-                case "4":
+                case "&#9200;":
                     await VkApi.Messages.SendAsync(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
