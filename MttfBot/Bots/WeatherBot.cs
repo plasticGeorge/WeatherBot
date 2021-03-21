@@ -10,7 +10,6 @@ namespace MttfBot.Bots
     public class WeatherBot : IBot
     {
         public IVkApi VkApi { get; private set; }
-        string str = "";
 
         public WeatherBot(IVkApi vkApi)
         {
@@ -33,23 +32,45 @@ namespace MttfBot.Bots
                         "что более дальние прогнозы менее точны"
                     });
                     break;
-                case "Выбрать город":
-
-                    break;
-                case "Выбрать даты":
-
-                    break;
-                case "~check":
-                    if (str == "off" || str == "")
-                        str = "on";
-                    else
-                        str = "off";
+                case "&#128205;":
                     await VkApi.Messages.SendAsync(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
                         UserId = message.FromId,
-                        Message = str
+                        Message = "Из какого вы города?"
                     });
+                    break;
+                case "&#128197;":
+                    await VkApi.Messages.SendAsync(new MessagesSendParams
+                    {
+                        RandomId = DateTime.Now.Millisecond,
+                        UserId = message.FromId,
+                        Message = "Установка диапазона"
+                    });
+                    break;
+                case "&#128293;":
+                    await VkApi.Messages.SendAsync(new MessagesSendParams
+                    {
+                        RandomId = DateTime.Now.Millisecond,
+                        UserId = message.FromId,
+                        Message = "Вот ваш прогноз: "
+                    });
+                    break;
+                case "&#9200;":
+                    await VkApi.Messages.SendAsync(new MessagesSendParams
+                    {
+                        RandomId = DateTime.Now.Millisecond,
+                        UserId = message.FromId,
+                        Message = "Уведомления включены"
+                    });
+                    break;
+                case "~check":
+                    //await VkApi.Messages.SendAsync(new MessagesSendParams
+                    //{
+                    //    RandomId = DateTime.Now.Millisecond,
+                    //    UserId = message.FromId,
+                    //    Message = 
+                    //});
                     break;
             }
         }
