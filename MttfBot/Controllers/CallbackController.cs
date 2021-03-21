@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using MttfBot.Interfaces;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -20,11 +21,11 @@ namespace MttfBot.Controllers
     public class CallbackController : ControllerBase
     {
         private IConfiguration _configuration;
-        private IVkApi _api;
-        public CallbackController(IConfiguration configuration, IVkApi api)
+        private IBot _bot;
+        public CallbackController(IConfiguration configuration, IBot bot)
         {
             _configuration = configuration;
-            _api = api;
+            _bot = bot;
         }
 
         [HttpPost]
@@ -36,13 +37,7 @@ namespace MttfBot.Controllers
                     return Ok(_configuration["Confirmation:" + callback.GroupId]);
 
                 case "message_new":
-                    var mes = Message.FromJson(new VkResponse(callback.Object));
-                    await _api.Messages.SendAsync(new MessagesSendParams
-                    {
-                        RandomId = DateTime.Now.Millisecond,
-                        PeerId = mes.PeerId,
-                        Message = mes.Text
-                    });
+                    await _bot.ProcessRequest(Message.FromJson(new VkResponse(callback.Object)));
                     return Ok("ok");
                 default:
                     return Ok("ok");
