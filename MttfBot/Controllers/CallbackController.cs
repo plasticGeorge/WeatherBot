@@ -28,25 +28,25 @@ namespace MttfBot.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Models.Callback callback)
+        public async Task<IActionResult> Post([FromBody] Models.Callback callback)
         {
             switch (callback.Type)
             {
                 case "confirmation":
-                    return Ok(_configuration["Confirmation:202559462"]);
+                    return Ok(_configuration["Confirmation:" + callback.GroupId]);
 
                 case "message_new":
                     var mes = Message.FromJson(new VkResponse(callback.Object));
-                    _api.Messages.Send(new MessagesSendParams
+                    await _api.Messages.SendAsync(new MessagesSendParams
                     {
                         RandomId = DateTime.Now.Millisecond,
                         PeerId = mes.PeerId,
                         Message = mes.Text
                     });
-                    break;
+                    return Ok("ok");
+                default:
+                    return Ok("ok");
             };
-
-            return Ok("ok");
         }
         [HttpGet]
         public IActionResult Get()
