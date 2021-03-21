@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MttfBot.Bots;
+using MttfBot.Interfaces;
 using VkNet;
 using VkNet.Abstractions;
 using VkNet.Model;
@@ -32,7 +34,8 @@ namespace MttfBot
                     AccessToken = Configuration["Authorize:AccessToken"]
                 });
                 return api;
-            });
+            })
+                    .AddSingleton<IBot, WeatherBot>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
