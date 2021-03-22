@@ -18,6 +18,15 @@ namespace MttfBot.Bots
 
         public async Task ProcessRequest(Message message)
         {
+            if(message.Geo != null)
+            {
+                await VkApi.Messages.SendAsync(new MessagesSendParams
+                {
+                    RandomId = DateTime.Now.Millisecond,
+                    UserId = message.FromId,
+                    Message = "Ща обработаем"
+                });
+            }
             switch (message.Text)
             {
                 case "Начать":
