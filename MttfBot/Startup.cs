@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MttfBot.Bots;
 using MttfBot.Interfaces;
+using MttfBot.WeatherForecasters;
 using VkNet;
 using VkNet.Abstractions;
 using VkNet.Model;
@@ -35,7 +36,14 @@ namespace MttfBot
                 });
                 return api;
             })
-                    .AddSingleton<IBot, WeatherBot>();
+                    .AddSingleton<IBot, WeatherBot>()
+                    .AddSingleton<IWeatherForecaster>(sp =>
+                    {
+                        return new WindyPointForecaster
+                        {
+                            ApiToken = Configuration["WindyApi:PointForecast"]
+                        };
+                    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,10 +10,12 @@ namespace MttfBot.Bots
     public class WeatherBot : IBot
     {
         public IVkApi VkApi { get; private set; }
+        public IWeatherForecaster WeatherForecaster { get; private set; }
 
-        public WeatherBot(IVkApi vkApi)
+        public WeatherBot(IVkApi vkApi, IWeatherForecaster weatherForecaster)
         {
             VkApi = vkApi;
+            WeatherForecaster = weatherForecaster;
         }
 
         public async Task ProcessRequest(Message message)
@@ -24,7 +26,7 @@ namespace MttfBot.Bots
                 {
                     RandomId = DateTime.Now.Millisecond,
                     UserId = message.FromId,
-                    Message = "Ща обработаем"
+                    Message = await WeatherForecaster.GetResponse(message.Geo.Coordinates.Latitude, message.Geo.Coordinates.Longitude)
                 });
             }
             switch (message.Text)
@@ -39,38 +41,6 @@ namespace MttfBot.Bots
                         "Напиши мне город, погоду в котором хочешь узнать, и я дам тебе прогноз на ближайшие 3 дня " +
                         "или выбери другую вторую опцию и укажи интересующие даты, только помни, " +
                         "что более дальние прогнозы менее точны"
-                    });
-                    break;
-                case "1":
-                    await VkApi.Messages.SendAsync(new MessagesSendParams
-                    {
-                        RandomId = DateTime.Now.Millisecond,
-                        UserId = message.FromId,
-                        Message = "Из какого вы города?"
-                    });
-                    break;
-                case "2":
-                    await VkApi.Messages.SendAsync(new MessagesSendParams
-                    {
-                        RandomId = DateTime.Now.Millisecond,
-                        UserId = message.FromId,
-                        Message = message.Text
-                    });
-                    break;
-                case "3":
-                    await VkApi.Messages.SendAsync(new MessagesSendParams
-                    {
-                        RandomId = DateTime.Now.Millisecond,
-                        UserId = message.FromId,
-                        Message = "Вот ваш прогноз: "
-                    });
-                    break;
-                case "4":
-                    await VkApi.Messages.SendAsync(new MessagesSendParams
-                    {
-                        RandomId = DateTime.Now.Millisecond,
-                        UserId = message.FromId,
-                        Message = "Уведомления включены"
                     });
                     break;
                 case "~check":
