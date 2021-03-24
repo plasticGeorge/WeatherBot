@@ -23,7 +23,9 @@ namespace MttfBot.WeatherForecasters
                                             {
                                                 Latitude = lat,
                                                 Longitude = lon,
-                                                Levels = JArray.FromObject(new object[] { "surface", "150h", "200h" }),
+                                                Model = "gfc",
+                                                Parameters = JArray.FromObject(new string[] {"wind", "dewpoint", "rh", "pressure"}),
+                                                Levels = JArray.FromObject(new string[] { "surface", "150h", "200h" }),
                                                 Key = ApiToken
                                             }));
             }
