@@ -28,7 +28,7 @@ namespace MttfBot.Bots
                     {
                         RandomId = DateTime.Now.Millisecond,
                         UserId = message.FromId,
-                        Message = str.Substring(i, 4096)
+                        Message = str.Substring(i, str.Length - i >= 4096 ? 4096 : str.Length - i)
                     });
                 }
             }
