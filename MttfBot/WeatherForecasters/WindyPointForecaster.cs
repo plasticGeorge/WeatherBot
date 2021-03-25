@@ -23,13 +23,13 @@ namespace MttfBot.WeatherForecasters
                                             {
                                                 Latitude = lat,
                                                 Longitude = lon,
-                                                Model = "gfc",
+                                                Model = "gfs",
                                                 Parameters = JArray.FromObject(new string[] {"wind", "dewpoint", "rh", "pressure"}),
                                                 Levels = JArray.FromObject(new string[] { "surface", "150h", "200h" }),
                                                 Key = ApiToken
                                             }));
             }
-            return await response.Content.ReadAsStringAsync();
+            return await response.RequestMessage.Content.ReadAsStringAsync();
         }
     }
 }
