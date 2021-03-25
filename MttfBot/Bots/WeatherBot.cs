@@ -4,6 +4,7 @@ using System;
 using System.Threading.Tasks;
 using VkNet.Abstractions;
 using VkNet.Model.RequestParams;
+using MttfBot.Models;
 
 namespace MttfBot.Bots
 {
@@ -20,17 +21,15 @@ namespace MttfBot.Bots
 
         public async Task ProcessRequest(Message message)
         {
-            if(message.Geo != null)
+            if (message.Geo != null)
             {
-                string str = await WeatherForecaster.GetResponse(message.Geo.Coordinates.Latitude, message.Geo.Coordinates.Longitude);
-                for (int i = 0; i < str.Length; i += 4096) {
-                    await VkApi.Messages.SendAsync(new MessagesSendParams
-                    {
-                        RandomId = DateTime.Now.Millisecond,
-                        UserId = message.FromId,
-                        Message = str.Substring(i, str.Length - i >= 4096 ? 4096 : str.Length - i)
-                    });
-                }
+                WindyPointResponse response = await WeatherForecaster.GetResponse(message.Geo.Coordinates.Latitude, message.Geo.Coordinates.Longitude);
+                await VkApi.Messages.SendAsync(new MessagesSendParams
+                {
+                    RandomId = DateTime.Now.Millisecond,
+                    UserId = message.FromId,
+                    Message = response.Units.ToString()
+                });
             }
             switch (message.Text)
             {
