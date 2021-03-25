@@ -17,10 +17,10 @@ namespace MttfBot.Models
         public string Model { get; set; } = "gfs";
 
         [JsonProperty("parameters")]
-        public JArray Parameters { get; set; } = JArray.FromObject(new object[]{ "temp", "wind", "precip", "convPrecip", "snowPrecip", "pressure" });
+        public string[] Parameters { get; set; } = new string[] { "temp", "wind", "precip", "convPrecip", "snowPrecip", "pressure" };
 
         [JsonProperty("levels")]
-        public JArray Levels { get; set; }
+        public string[] Levels { get; set; }
 
         [JsonProperty("key")]
         public string Key { get; set; }
