@@ -23,13 +23,13 @@ namespace MttfBot.WeatherForecasters
                                             {
                                                 Lat = lat,
                                                 Lon = lon,
-                                                Model = "gfs",
+                                                Model = "102020",
                                                 Parameters = new[] {"wind", "dewpoint", "rh", "pressure"},
                                                 Levels = new[] { "surface", "150h", "200h" },
                                                 Key = ApiToken
                                             }));
             }
-            return await response.Content.ReadAsStringAsync();
+            return response.StatusCode.ToString();
         }
     }
 }
