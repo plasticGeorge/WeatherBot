@@ -14,7 +14,7 @@ namespace MttfBot.Models
         public long[] Ts { get; set; }
 
         [JsonProperty("units")]
-        public JProperty Units { get; set; }
+        public JObject Units { get; set; }
 
         [JsonProperty("wind_u-surface")]
         public double[] WindU_Surface { get; set; }
