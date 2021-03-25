@@ -26,7 +26,7 @@ namespace MttfBot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
-                .AddNewtonsoftJson();
+                    .AddNewtonsoftJson();
             services.AddSingleton<IVkApi>(sp =>
             {
                 var api = new VkApi();
