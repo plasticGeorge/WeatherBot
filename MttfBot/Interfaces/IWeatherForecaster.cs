@@ -9,6 +9,6 @@ namespace MttfBot.Interfaces
     public interface IWeatherForecaster
     {
         public string ApiToken { get; set; }
-        public Task<JObject> GetResponse(double lat, double lon);
+        public Task<string> GetResponse(double lat, double lon);
     }
 }
