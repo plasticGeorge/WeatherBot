@@ -22,12 +22,15 @@ namespace MttfBot.Bots
         {
             if(message.Geo != null)
             {
-                await VkApi.Messages.SendAsync(new MessagesSendParams
-                {
-                    RandomId = DateTime.Now.Millisecond,
-                    UserId = message.FromId,
-                    Message = WeatherForecaster.GetResponse(message.Geo.Coordinates.Latitude, message.Geo.Coordinates.Longitude).Result.Substring(0, 4096)
-                });
+                string str = await WeatherForecaster.GetResponse(message.Geo.Coordinates.Latitude, message.Geo.Coordinates.Longitude);
+                for (int i = 0; i < str.Length; i += 4096) {
+                    await VkApi.Messages.SendAsync(new MessagesSendParams
+                    {
+                        RandomId = DateTime.Now.Millisecond,
+                        UserId = message.FromId,
+                        Message = str.Substring(i, 4096)
+                    });
+                }
             }
             switch (message.Text)
             {

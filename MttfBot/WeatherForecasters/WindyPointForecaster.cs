@@ -25,7 +25,7 @@ namespace MttfBot.WeatherForecasters
                                                 Lon = lon,
                                                 Model = "gfs",
                                                 Parameters = new[] {"wind", "dewpoint", "rh", "pressure"},
-                                                Levels = new[] { "surface", "150h", "200h" },
+                                                Levels = new[] { "surface"},
                                                 Key = ApiToken
                                             }));
             }

@@ -14,10 +14,10 @@ namespace MttfBot.Models
         public double Lon { get; set; }
 
         [JsonProperty("model")]
-        public string Model { get; set; } = "gfs";
+        public string Model { get; set; }
 
         [JsonProperty("parameters")]
-        public string[] Parameters { get; set; } = new string[] { "temp", "wind", "precip", "convPrecip", "snowPrecip", "pressure" };
+        public string[] Parameters { get; set; }
 
         [JsonProperty("levels")]
         public string[] Levels { get; set; }
