@@ -8,10 +8,10 @@ namespace MttfBot.Models
     public class WindyPointRequest
     {
         [JsonProperty("lat")]
-        public double Latitude { get; set; }
+        public double Lat { get; set; }
 
         [JsonProperty("lon")]
-        public double Longitude { get; set; }
+        public double Lon { get; set; }
 
         [JsonProperty("model")]
         public string Model { get; set; } = "gfs";
