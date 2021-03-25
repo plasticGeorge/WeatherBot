@@ -9,6 +9,5 @@ namespace MttfBot.Models
     [Serializable]
     public class WindyPointResponse
     {
-        [JsonProperty("")]
     }
 }
