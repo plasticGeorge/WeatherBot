@@ -26,7 +26,7 @@ namespace MttfBot.Bots
                 {
                     RandomId = DateTime.Now.Millisecond,
                     UserId = message.FromId,
-                    Message = await WeatherForecaster.GetResponse(message.Geo.Coordinates.Latitude, message.Geo.Coordinates.Longitude)
+                    Message = WeatherForecaster.GetResponse(message.Geo.Coordinates.Latitude, message.Geo.Coordinates.Longitude).Result.ToString()
                 });
             }
             switch (message.Text)

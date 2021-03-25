@@ -13,7 +13,7 @@ namespace MttfBot.WeatherForecasters
     public class WindyPointForecaster : IWeatherForecaster
     {
         public string ApiToken { get; set; }
-        public async Task<string> GetResponse(double lat, double lon)
+        public async Task<JObject> GetResponse(double lat, double lon)
         {
             HttpResponseMessage response;
             using (HttpClient client = new HttpClient())
@@ -29,7 +29,7 @@ namespace MttfBot.WeatherForecasters
                                                 Key = ApiToken
                                             }));
             }
-            return response.Content.ToString();
+            return await response.Content.ReadFromJsonAsync<JObject>();
         }
     }
 }
