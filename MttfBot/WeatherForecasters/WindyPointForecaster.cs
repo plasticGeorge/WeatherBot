@@ -29,7 +29,7 @@ namespace MttfBot.WeatherForecasters
                                                 Key = ApiToken
                                             }));
             }
-            return response.StatusCode.ToString();
+            return await response.Content.ReadAsStringAsync();
         }
     }
 }
