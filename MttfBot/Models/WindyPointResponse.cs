@@ -11,7 +11,7 @@ namespace MttfBot.Models
     public class WindyPointResponse
     {
         [JsonProperty("ts")]
-        public int[] Ts { get; set; }
+        public long[] Ts { get; set; }
 
         [JsonProperty("units")]
         public JObject Units { get; set; }
