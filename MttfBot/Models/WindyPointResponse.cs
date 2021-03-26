@@ -2,31 +2,32 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace MttfBot.Models
 {
     [Serializable]
     public class WindyPointResponse
     {
-        [JsonProperty("ts")]
+        [JsonPropertyName("ts")]
         public long[] Ts { get; set; }
 
-        [JsonProperty("units")]
+        [JsonPropertyName("units")]
         public Dictionary<string, string> Units { get; set; }
 
-        [JsonProperty("wind_u-surface")]
-        public JValue[] WindU_Surface { get; set; }
+        [JsonPropertyName("wind_u-surface")]
+        public double[] WindU_Surface { get; set; }
 
-        [JsonProperty("wind_v-surface")]
-        public object[] WindV_Surface { get; set; }
+        [JsonPropertyName("wind_v-surface")]
+        public double[] WindV_Surface { get; set; }
 
-        [JsonProperty("dewpoint-surface")]
+        [JsonPropertyName("dewpoint-surface")]
         public double[] Dewpoint_Surface { get; set; }
 
-        [JsonProperty("rh-surface")]
+        [JsonPropertyName("rh-surface")]
         public double[] Rh_Surface { get; set; }
 
-        [JsonProperty("pressure-surface")]
+        [JsonPropertyName("pressure-surface")]
         public double[] Pressure_Surface { get; set; }
     }
 }
