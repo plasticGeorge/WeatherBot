@@ -1,25 +1,25 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Text.Json.Serialization;
 
 namespace MttfBot.Models
 {
 	[Serializable]
 	public class Callback
 	{
-		[JsonProperty("type")]
+		[JsonPropertyName("type")]
 		public string Type { get; set; }
 
-		[JsonProperty("object")]
+		[JsonPropertyName("object")]
 		public JObject Object { get; set; }
 
-		[JsonProperty("group_id")]
+		[JsonPropertyName("group_id")]
 		public int GroupID { get; set; }
 
-		[JsonProperty("event_id")]
+		[JsonPropertyName("event_id")]
 		public string EventID { get; set; }
 
-		[JsonProperty("secret")]
+		[JsonPropertyName("secret")]
 		public string Secret { get; set; }
 	}
 }

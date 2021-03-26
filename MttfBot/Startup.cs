@@ -7,7 +7,6 @@ using MttfBot.Bots;
 using MttfBot.HelperClasses;
 using MttfBot.Interfaces;
 using MttfBot.WeatherForecasters;
-using Newtonsoft.Json.Serialization;
 using VkNet;
 using VkNet.Abstractions;
 using VkNet.Model;

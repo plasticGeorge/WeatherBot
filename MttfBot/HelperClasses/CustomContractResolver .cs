@@ -1,8 +1,5 @@
 ﻿using Newtonsoft.Json.Serialization;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MttfBot.HelperClasses
 {
@@ -15,28 +12,28 @@ namespace MttfBot.HelperClasses
             PropertyMappings = new Dictionary<string, string>
             {
             //Callback section
-                {"type", "Type"},
-                {"object", "Object"},
-                {"group_id", "GroupID"},
-                {"event_id", "EventID"},
-                {"secret", "Secret"},
+                {"Type", "type"},
+                {"Object", "object"},
+                {"GroupID", "group_id"},
+                {"EventID", "event_id"},
+                {"Secret", "secret"},
 
             //WindyPointRequest section
-                {"lat", "Latitude"},
-                {"lon", "Longitude"},
-                {"model", "Model"},
-                {"parameters", "Parameters"},
-                {"levels", "Levels"},
-                {"key", "Key"},
+                {"Latitude", "lat"},
+                {"Longitude", "lon"},
+                {"Model", "model"},
+                {"Parameters", "parameters"},
+                {"Levels", "levels"},
+                {"Key", "key"},
 
             //WindyPointResponse
-                {"ts", "Timestamp"},
-                {"units", "Units"},
-                {"wind_u-surface", "WindUSurface"},
-                {"wind_v-surface", "WindVSurface"},
-                {"dewpoint-surface", "DewpointSurface"},
-                {"rh-surface", "RhSurface"},
-                {"pressure-surface", "PressureSurface"}
+                {"Timestamp ", "ts"},
+                {"Units", "units"},
+                {"WindUSurface", "wind_u-surface"},
+                {"WindVSurface", "wind_v-surface"},
+                {"DewpointSurface", "dewpoint-surface"},
+                {"RhSurface", "rh-surface"},
+                {"PressureSurface", "pressure-surface"}
             };
         }
 
