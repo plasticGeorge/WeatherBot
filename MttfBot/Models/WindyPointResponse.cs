@@ -2,8 +2,6 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MttfBot.Models
 {
@@ -20,7 +18,7 @@ namespace MttfBot.Models
         public JValue[] WindU_Surface { get; set; }
 
         [JsonProperty("wind_v-surface")]
-        public double[] WindV_Surface { get; set; }
+        public object[] WindV_Surface { get; set; }
 
         [JsonProperty("dewpoint-surface")]
         public double[] Dewpoint_Surface { get; set; }
