@@ -1,5 +1,6 @@
 ﻿using MttfBot.Interfaces;
 using MttfBot.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,8 @@ namespace MttfBot.WeatherForecasters
                                                 Key = ApiToken
                                             }));
             }
-            return await response.Content.ReadFromJsonAsync<WindyPointResponse>();
+            string str = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<WindyPointResponse>(str.Replace('.', ','));
         }
     }
 }
