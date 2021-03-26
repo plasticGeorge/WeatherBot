@@ -1,27 +1,27 @@
-﻿using System;
-using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace MttfBot.Models
 {
     [Serializable]
     public class WindyPointRequest
     {
-        [JsonPropertyName("lat")]
+        [JsonProperty("lat")]
         public double Latitude { get; set; }
 
-        [JsonPropertyName("lon")]
+        [JsonProperty("lon")]
         public double Longitude { get; set; }
 
-        [JsonPropertyName("model")]
+        [JsonProperty("model")]
         public string Model { get; set; }
 
-        [JsonPropertyName("parameters")]
+        [JsonProperty("parameters")]
         public string[] Parameters { get; set; }
 
-        [JsonPropertyName("levels")]
+        [JsonProperty("levels")]
         public string[] Levels { get; set; }
 
-        [JsonPropertyName("key")]
+        [JsonProperty("key")]
         public string Key { get; set; }
     }
 }
