@@ -29,7 +29,11 @@ namespace MttfBot
             services.AddControllers()
                     .AddNewtonsoftJson(jsonOptions =>
                     {
-                        jsonOptions.SerializerSettings.TypeNameHandling = TypeNameHandling.All ;
+                        jsonOptions.SerializerSettings.TypeNameHandling = TypeNameHandling.All;
+                        jsonOptions.SerializerSettings.Formatting = Formatting.Indented;
+                        jsonOptions.SerializerSettings.MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead;
+                        jsonOptions.SerializerSettings.TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Full;
+                        jsonOptions.SerializerSettings.TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full;
                     });
             services.AddSingleton<IVkApi>(sp =>
             {
