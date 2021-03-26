@@ -29,7 +29,7 @@ namespace MttfBot
             services.AddControllers()
                     .AddNewtonsoftJson(jsonOptions =>
                     {
-                        jsonOptions.SerializerSettings.ContractResolver = new CustomContractResolver()
+                        jsonOptions.SerializerSettings.ContractResolver = new CustomContractResolver();
                     });
             services.AddSingleton<IVkApi>(sp =>
             {
