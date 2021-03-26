@@ -15,28 +15,28 @@ namespace MttfBot.HelperClasses
             PropertyMappings = new Dictionary<string, string>
             {
             //Callback section
-                {"Type", "type"},
-                {"Object", "object"},
-                {"GroupID", "group_id"},
-                {"EventID", "event_id"},
-                {"Secret", "secret"},
+                {"type", "Type"},
+                {"object", "Object"},
+                {"group_id", "GroupID"},
+                {"event_id", "EventID"},
+                {"secret", "Secret"},
 
             //WindyPointRequest section
-                {"Latitude", "lat"},
-                {"Longitude", "lon"},
-                {"Model", "model"},
-                {"Parameters", "parameters"},
-                {"Levels", "levels"},
-                {"Key", "key"},
+                {"lat", "Latitude"},
+                {"lon", "Longitude"},
+                {"model", "Model"},
+                {"parameters", "Parameters"},
+                {"levels", "Levels"},
+                {"key", "Key"},
 
             //WindyPointResponse
-                {"Timestamp ", "ts"},
-                {"Units", "units"},
-                {"WindUSurface", "wind_u-surface"},
-                {"WindVSurface", "wind_v-surface"},
-                {"DewpointSurface", "dewpoint-surface"},
-                {"RhSurface", "rh-surface"},
-                {"PressureSurface", "pressure-surface"}
+                {"ts", "Timestamp"},
+                {"units", "Units"},
+                {"wind_u-surface", "WindUSurface"},
+                {"wind_v-surface", "WindVSurface"},
+                {"dewpoint-surface", "DewpointSurface"},
+                {"rh-surface", "RhSurface"},
+                {"pressure-surface", "PressureSurface"}
             };
         }
 
