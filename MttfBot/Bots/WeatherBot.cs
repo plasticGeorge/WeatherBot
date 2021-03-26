@@ -28,12 +28,12 @@ namespace MttfBot.Bots
                 {
                     RandomId = DateTime.Now.Millisecond,
                     UserId = message.FromId,
-                    Message = $"Ts: {response?.Ts.Length}\n" +
-                              $"WindU_Surface: {response?.WindU_Surface.Length}\n" +
-                              $"WindV_Surface: {response?.WindV_Surface.Length}\n" +
-                              $"Dewpoint_Surface: {response?.Dewpoint_Surface.Length}\n" +
-                              $"Rh_Surface: {response?.Rh_Surface.Length}\n" +
-                              $"Pressure_Surface: {response?.Pressure_Surface.Length}\n"
+                    Message = $"Ts: {response?.Ts?.Length}\n" +
+                              $"WindU_Surface: {response?.WindU_Surface?.Length}\n" +
+                              $"WindV_Surface: {response?.WindV_Surface?.Length}\n" +
+                              $"Dewpoint_Surface: {response?.Dewpoint_Surface?.Length}\n" +
+                              $"Rh_Surface: {response?.Rh_Surface?.Length}\n" +
+                              $"Pressure_Surface: {response?.Pressure_Surface?.Length}\n"
                 });
             }
             switch (message.Text)
