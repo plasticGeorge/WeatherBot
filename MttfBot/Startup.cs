@@ -8,6 +8,7 @@ using MttfBot.Bots;
 using MttfBot.Interfaces;
 using MttfBot.WeatherForecasters;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using VkNet;
 using VkNet.Abstractions;
 using VkNet.Model;
@@ -29,11 +30,11 @@ namespace MttfBot
             services.AddControllers()
                     .AddNewtonsoftJson(jsonOptions =>
                     {
-                        jsonOptions.SerializerSettings.TypeNameHandling = TypeNameHandling.All;
-                        jsonOptions.SerializerSettings.Formatting = Formatting.Indented;
-                        jsonOptions.SerializerSettings.MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead;
-                        jsonOptions.SerializerSettings.TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Full;
-                        jsonOptions.SerializerSettings.TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full;
+                        jsonOptions.UseMemberCasing();
+                        //jsonOptions.SerializerSettings.ContractResolver = new DefaultContractResolver
+                        //{
+                        //    NamingStrategy = new SnakeCaseNamingStrategy()
+                        //};
                     });
             services.AddSingleton<IVkApi>(sp =>
             {
