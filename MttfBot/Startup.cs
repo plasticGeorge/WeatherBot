@@ -30,11 +30,10 @@ namespace MttfBot
             services.AddControllers()
                     .AddNewtonsoftJson(jsonOptions =>
                     {
-                        jsonOptions.UseMemberCasing();
-                        //jsonOptions.SerializerSettings.ContractResolver = new DefaultContractResolver
-                        //{
-                        //    NamingStrategy = new SnakeCaseNamingStrategy()
-                        //};
+                        jsonOptions.SerializerSettings.ContractResolver = new DefaultContractResolver
+                        {
+                            NamingStrategy = new SnakeCaseNamingStrategy()
+                        };
                     });
             services.AddSingleton<IVkApi>(sp =>
             {
