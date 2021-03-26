@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MttfBot.Bots;
+using MttfBot.HelperClasses;
 using MttfBot.Interfaces;
 using MttfBot.WeatherForecasters;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using VkNet;
 using VkNet.Abstractions;
@@ -32,7 +31,10 @@ namespace MttfBot
                     {
                         jsonOptions.SerializerSettings.ContractResolver = new DefaultContractResolver
                         {
-                            NamingStrategy = new SnakeCaseNamingStrategy()
+                            NamingStrategy = new DefaultNamingStrategy
+                            {
+                                OverrideSpecifiedNames = true
+                            }
                         };
                     });
             services.AddSingleton<IVkApi>(sp =>
