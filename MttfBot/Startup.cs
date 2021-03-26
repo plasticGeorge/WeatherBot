@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using MttfBot.Bots;
 using MttfBot.Interfaces;
 using MttfBot.WeatherForecasters;
+using Newtonsoft.Json;
 using VkNet;
 using VkNet.Abstractions;
 using VkNet.Model;
@@ -26,7 +27,10 @@ namespace MttfBot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
-                    .AddNewtonsoftJson();
+                    .AddNewtonsoftJson(jsonOptions =>
+                    {
+                        jsonOptions.SerializerSettings.TypeNameHandling = TypeNameHandling.All ;
+                    });
             services.AddSingleton<IVkApi>(sp =>
             {
                 var api = new VkApi();
