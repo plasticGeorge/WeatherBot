@@ -12,7 +12,7 @@ using VkNet.Model;
 using VkNet.Model.RequestParams;
 using VkNet.Utils;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
 
 namespace MttfBot.Controllers
 {
@@ -34,7 +34,7 @@ namespace MttfBot.Controllers
             switch (callback.Type)
             {
                 case "confirmation":
-                    return Ok(_configuration["Confirmation:" + callback.GroupId]);
+                    return Ok(_configuration["Confirmation:" + callback.GroupID]);
 
                 case "message_new":
                     await _bot.ProcessRequest(Message.FromJson(new VkResponse(callback.Object)));
