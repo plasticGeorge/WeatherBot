@@ -17,18 +17,18 @@ namespace MttfBot.Models
         public Dictionary<string, string> Units { get; set; }
 
         [JsonProperty("wind_u-surface")]
-        public double[] WindU_Surface { get; set; }
+        public decimal[] WindU_Surface { get; set; }
 
         [JsonProperty("wind_v-surface")]
-        public double[] WindV_Surface { get; set; }
+        public decimal[] WindV_Surface { get; set; }
 
         [JsonProperty("dewpoint-surface")]
-        public double[] Dewpoint_Surface { get; set; }
+        public decimal[] Dewpoint_Surface { get; set; }
 
         [JsonProperty("rh-surface")]
-        public double[] Rh_Surface { get; set; }
+        public decimal[] Rh_Surface { get; set; }
 
         [JsonProperty("pressure-surface")]
-        public double[] Pressure_Surface { get; set; }
+        public decimal[] Pressure_Surface { get; set; }
     }
 }
