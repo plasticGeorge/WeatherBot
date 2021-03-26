@@ -30,8 +30,7 @@ namespace MttfBot.WeatherForecasters
                                                 Key = ApiToken
                                             }));
             }
-            string str = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<WindyPointResponse>(str.Replace('.', ','));
+            return await response.Content.ReadFromJsonAsync<WindyPointResponse>();
         }
     }
 }

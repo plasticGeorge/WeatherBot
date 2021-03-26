@@ -17,7 +17,7 @@ namespace MttfBot.Models
         public Dictionary<string, string> Units { get; set; }
 
         [JsonProperty("wind_u-surface")]
-        public double[] WindU_Surface { get; set; }
+        public JValue[] WindU_Surface { get; set; }
 
         [JsonProperty("wind_v-surface")]
         public double[] WindV_Surface { get; set; }
