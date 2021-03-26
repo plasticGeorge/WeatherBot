@@ -15,7 +15,7 @@ namespace MttfBot.Models
 		public JObject Object { get; set; }
 
 		[JsonPropertyName("group_id")]
-		public int GroupId { get; set; }
+		public int GroupID { get; set; }
 
 		[JsonPropertyName("event_id")]
 		public string EventID { get; set; }

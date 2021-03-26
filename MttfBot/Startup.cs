@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MttfBot.Bots;
+using MttfBot.HelperClasses;
 using MttfBot.Interfaces;
 using MttfBot.WeatherForecasters;
 using Newtonsoft.Json.Serialization;
@@ -28,13 +29,7 @@ namespace MttfBot
             services.AddControllers()
                     .AddNewtonsoftJson(jsonOptions =>
                     {
-                        jsonOptions.SerializerSettings.ContractResolver = new DefaultContractResolver
-                        {
-                            NamingStrategy = new DefaultNamingStrategy
-                            {
-                                OverrideSpecifiedNames = true
-                            }
-                        };
+                        jsonOptions.SerializerSettings.ContractResolver = new CustomContractResolver()
                     });
             services.AddSingleton<IVkApi>(sp =>
             {

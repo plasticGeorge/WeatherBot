@@ -9,24 +9,24 @@ namespace MttfBot.Models
     public class WindyPointResponse
     {
         [JsonProperty("ts")]
-        public long[] Ts { get; set; }
+        public long[] Timestamp { get; set; }
 
         [JsonProperty("units")]
         public Dictionary<string, string> Units { get; set; }
 
         [JsonProperty("wind_u-surface")]
-        public double[] WindU_Surface { get; set; }
+        public double[] WindUSurface { get; set; }
 
         [JsonProperty("wind_v-surface")]
-        public double[] WindV_Surface { get; set; }
+        public double[] WindVSurface { get; set; }
 
         [JsonProperty("dewpoint-surface")]
-        public double[] Dewpoint_Surface { get; set; }
+        public double[] DewpointSurface { get; set; }
 
         [JsonProperty("rh-surface")]
-        public double[] Rh_Surface { get; set; }
+        public double[] RhSurface { get; set; }
 
         [JsonProperty("pressure-surface")]
-        public double[] Pressure_Surface { get; set; }
+        public double[] PressureSurface { get; set; }
     }
 }
