@@ -22,8 +22,8 @@ namespace MttfBot.WeatherForecasters
                 response = await client.PostAsync("https://api.windy.com/api/point-forecast/v2",
                                             JsonContent.Create<WindyPointRequest>(new WindyPointRequest
                                             {
-                                                Lat = lat,
-                                                Lon = lon,
+                                                Latitude = lat,
+                                                Longitude = lon,
                                                 Model = "gfs",
                                                 Parameters = new[] {"wind", "dewpoint", "rh", "pressure"},
                                                 Levels = new[] { "surface"},
